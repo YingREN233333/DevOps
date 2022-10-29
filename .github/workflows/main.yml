@@ -22,7 +22,7 @@ jobs:
           cache: "maven"
  
       - name: Build and test with Maven
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=YingREN233333_DevOps --file simple-api/pom.xml
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=YingREN233333_DevOps -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file simple-api/pom.xml
   
   build-and-push-docker-image:
     needs: test-backend
